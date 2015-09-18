@@ -20,7 +20,7 @@ module PsengEkgClient
         headers: { 'Content-Type' => 'application/json' }
       }
 
-      case action
+      response = case action
       when 'index'
         self.class.get("/#{record_type}s.json", options)
       when 'show'
@@ -32,6 +32,7 @@ module PsengEkgClient
       when 'destroy'
         self.class.delete("/#{record_type}s/#{payload.id}.json", options)
       end
+      JSON.parse(response.body)
     end
   end
 end
