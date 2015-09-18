@@ -1,4 +1,5 @@
 require "pseng_ekg_client/version"
+require 'httparty'
 
 module PsengEkgClient
   class Api
