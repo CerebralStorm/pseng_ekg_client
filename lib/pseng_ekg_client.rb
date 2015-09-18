@@ -1,6 +1,6 @@
 require "pseng_ekg_client/version"
 
-class PsengEkg::Client
+class PsengEkgClient
   include HTTParty
   VALID_ACTIONS = %w(index show create update destroy)
   VALID_RECORD_TYPES = %w(application task)
