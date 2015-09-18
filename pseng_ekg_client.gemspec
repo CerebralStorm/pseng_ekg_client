@@ -13,7 +13,10 @@ Gem::Specification.new do |spec|
   spec.description   = %q{This gem is used to push status updates to long running processes for Instructure Professional Services}
   spec.homepage      = "https://github.com/CerebralStorm/pseng_ekg_client"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = %w[Rakefile pseng_ekg_client.gemspec]
+  spec.files         += Dir.glob("lib/**/*.rb")
+  spec.test_files    = Dir.glob("spec/**/*")
+
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
