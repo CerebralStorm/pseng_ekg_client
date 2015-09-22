@@ -11,7 +11,7 @@ module PsengEkgClient
       self.class.base_uri base_uri
     end
 
-    def send_message(record_type, action, payload)
+    def send_message(record_type, action, payload, id = nil)
       raise 'Invalid Action' unless VALID_ACTIONS.include?(action)
       raise 'Invalid Record Type' unless VALID_RECORD_TYPES.include?(record_type)
 
@@ -24,15 +24,15 @@ module PsengEkgClient
       when 'index'
         self.class.get("/#{record_type}s.json", options)
       when 'show'
-        self.class.get("/#{record_type}s/#{payload.id}.json", options)
+        self.class.get("/#{record_type}s/#{id}.json", options)
       when 'create'
         self.class.post("/#{record_type}s.json", options)
       when 'update'
-        self.class.patch("/#{record_type}s/#{payload.id}.json", options)
+        self.class.patch("/#{record_type}s/#{id}.json", options)
       when 'destroy'
-        self.class.delete("/#{record_type}s/#{payload.id}.json", options)
+        self.class.delete("/#{record_type}s/#{id}.json", options)
       end
-      JSON.parse(response.body)
+      response
     end
   end
 end
