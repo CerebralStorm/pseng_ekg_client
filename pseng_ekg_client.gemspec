@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'pseng_ekg_client/version'
+require 'pseng_ekg/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "pseng_ekg_client"
-  spec.version       = PsengEkgClient::VERSION
+  spec.version       = PsengEkg::VERSION
   spec.authors       = ["Cody Tanner"]
   spec.email         = ["ctanner@instructure.com"]
 
