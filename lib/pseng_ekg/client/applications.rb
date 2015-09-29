@@ -15,7 +15,7 @@ module PsengEkg
       end
 
       def application_update(applictation_id, params = {})
-        self.class.patch("/api/v1/applications/#{application_id}.json", query: params)
+        self.class.put("/api/v1/applications/#{application_id}.json", query: params)
       end
 
       def application_destroy(applictation_id, params = {})

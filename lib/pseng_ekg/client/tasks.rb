@@ -14,11 +14,11 @@ module PsengEkg
         self.class.post("/api/v1/applications/#{application_id}/tasks.json", query: params)
       end
 
-      def task_update(applictation_id, task_id, params = {})
-        self.class.patch("/api/v1/applications/#{application_id}/tasks/#{task_id}.json", query: params)
+      def task_update(application_id, task_id, params = {})
+        self.class.put("/api/v1/applications/#{application_id}/tasks/#{task_id}.json", query: params)
       end
 
-      def task_destroy(applictation_id, task_id, params = {})
+      def task_destroy(application_id, task_id, params = {})
         self.class.destroy("/api/v1/applications/#{application_id}/tasks/#{task_id}.json", query: params)
       end
 
