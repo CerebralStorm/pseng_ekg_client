@@ -3,6 +3,7 @@ require "pseng_ekg/version"
 require "pseng_ekg/client/applications"
 require "pseng_ekg/client/tasks"
 require "pseng_ekg/client/errors"
+require "pseng_ekg/client/logs"
 require 'httmultiparty'
 
 module PsengEkg
@@ -11,6 +12,7 @@ module PsengEkg
     include Applications
     include Tasks
     include Errors
+    include Logs
 
     attr_accessor :logger
 
