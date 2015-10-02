@@ -20,5 +20,14 @@ module PsengEkg
       self.class.base_uri base_uri
       @logger = ::Logger.new("#{Rails.root}/log/pseng_ekg.log")
     end
+
+
+    def soft_fail
+      begin
+        yield
+      rescue => e
+        logger.error e
+      end
+    end
   end
 end

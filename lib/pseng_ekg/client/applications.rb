@@ -3,23 +3,33 @@ module PsengEkg
     module Applications
 
       def application_index(params = {})
-        self.class.get("/api/v1/applications.json", query: params)
+        soft_fail do
+          @response = self.class.get("/api/v1/applications.json", query: params)
+        end
       end
 
       def application_show(application_id, params = {})
-        self.class.get("/api/v1/applications/#{application_id}.json", query: params)
+        soft_fail do
+          @response = self.class.get("/api/v1/applications/#{application_id}.json", query: params)
+        end
       end
 
       def application_create(params = {})
-        self.class.post("/api/v1/applications.json", query: params)
+        soft_fail do
+          @response = self.class.post("/api/v1/applications.json", query: params)
+        end
       end
 
       def application_update(applictation_id, params = {})
-        self.class.put("/api/v1/applications/#{application_id}.json", query: params)
+        soft_fail do
+          @response = self.class.put("/api/v1/applications/#{application_id}.json", query: params)
+        end
       end
 
       def application_destroy(applictation_id, params = {})
-        self.class.destroy("/api/v1/applications.json", query: params)
+        soft_fail do
+          @response = self.class.destroy("/api/v1/applications.json", query: params)
+        end
       end
 
     end
